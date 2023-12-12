@@ -4,6 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "ecommerce-apple.client": {
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es-AR": "src/assets/i18n/es.json",
+          "en-US": "src/assets/i18n/en.json"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
