@@ -1,3 +1,70 @@
-<div class="container">
-  <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa inventore, perferendis beatae voluptatum cupiditate quasi, nemo aliquam neque placeat aperiam quam adipisci ut corrupti, provident unde cumque obcaecati harum? Qui? </P>
+<div *ngFor="let product of banners; let i = index" >
+  <div
+    class="home__banner"
+    [ngClass]="'home__banner-' + i"
+    [ngClass]="{ m_t: i > 0 }"
+    id="home__top"
+  >
+    <h1 class="home__banner-title">{{ product.title }}</h1>
+      <p class="home__banner-text">{{ bannerTexts[i] | translate }}</p>
+    <a class="home__banner-link btn__hover" [href]="product.link">
+      Buy
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="0.85em"
+        viewBox="0 0 320 512"
+      >
+        <path
+          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+        />
+      </svg>
+    </a>
+    <div class="home__banner-img-container">
+      <img
+        class="home__banner-img"
+        [src]="
+          largeImage
+            ? product.largeImage
+            : mediumImage
+            ? product.mediumImage
+            : product.smallImage
+        "
+        alt="{{ product.title }}"
+      />
+    </div>
+  </div>
+</div>
+<div class="home__grid">
+  <div
+    class="home__card"
+    [ngClass]="'home__card-' + i"
+    *ngFor="let product of grid; let i = index; let o = index"
+  >
+    <div class="home__card-info" [ngClass]="{ text__position: i == 1 }">
+      <h1 class="home__card-info-title" [ngClass]="{ text__color: i == 1 || i == 2 }" > {{ product.title }} </h1>
+      <p class="home__card-info-text" [ngClass]="{ text__color: i == 1 || i == 2 }"> {{ gridTexts[i] | translate }} </p>
+      <a class="home__card-link btn__hover" [href]="product.link">Buy
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="0.85em"
+          viewBox="0 0 320 512"
+        >
+          <path
+            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+          />
+        </svg>
+      </a>
+    </div>
+    <img
+      class="home__card-img"
+      [src]="
+        largeImage
+          ? product.largeImage
+          : mediumImage
+          ? product.mediumImage
+          : product.smallImage
+      "
+      alt="{{ product.title }}"
+    />
+  </div>
 </div>
