@@ -1,1 +1,7 @@
-@import 'styles/base/reset';
+@import "styles/base/reset";
+@import "styles/variables/colors";
+@import "styles/variables/variablesColor";
+@import "styles/variables/variablesFont";
+@import "styles/variables/variablesSpacing";
+@import "styles/abstract/mixins";
+@import "styles/components/buttons";

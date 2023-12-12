@@ -1,0 +1,77 @@
+@import "../variables/colors";
+@import "../variables/variablesColor";
+@import "../variables/variablesFont";
+@import "../variables/variablesSpacing";
+
+@mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font($color: $black, $size: 1em, $weight: 400) {
+  font-family: "SF-Pro", sans-serif;
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin mediaQuery($breakpoint) {
+  @if $breakpoint == "tablet" {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  } @else if $breakpoint == "mobile" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $breakpoint == "desktop" {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' no válido. Use 'tablet', 'mobile' o 'desktop'.";
+  }
+}
+
+@mixin positionAbsolute($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
+  position: absolute;
+  top: $pTop;
+  right: $pRight;
+  bottom: $pBottom;
+  left: $pLeft;
+}
+
+@mixin absoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+@mixin positionFixed($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
+  position: fixed;
+  top: $pTop;
+  right: $pRight;
+  bottom: $pBottom;
+  left: $pLeft;
+}
+
+@mixin cardStyle() {
+  position: relative;
+  background-color: $backgroundCard;
+  border-radius: $xl;
+  box-shadow: $shadowComponent;
+  padding: $paddingXl;
+  width: 100%;
+  @media (min-width: 1024px) {
+    padding: $padding-xxl;
+  }
+}
+
+@mixin borderCard() {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: $border-radius-sm;
+}

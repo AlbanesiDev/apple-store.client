@@ -1,0 +1,23 @@
+.btn__hover {
+  @include flex;
+  @include font($brand-primary, $font-size-base, $weight-regular);
+  position: relative;
+  fill: $brand-primary;
+  text-decoration: none;
+  z-index: $z-index-home-text;
+  &::before {
+    content: "";
+    @include positionAbsolute(auto, auto, -5px, 50%);
+    transform: translateX(-50%) scaleX(0);
+    width: 50px !important;
+    height: 2px;
+    background-color: $brand-primary;
+    transition:
+      transform 0.3s ease,
+      width 0.3s ease;
+  }
+  &:hover::before {
+    transform: translateX(-50%) scaleX(1);
+    width: 100%;
+  }
+}

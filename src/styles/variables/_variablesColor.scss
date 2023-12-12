@@ -1,0 +1,33 @@
+@import "./colors";
+
+// Basics colors
+$black: $black-950;
+$dark: $black-900;
+$dark-gray: $black-800;
+$gray: $black-300;
+$white: #ffffff;
+// Brand primary
+$brand-primary: $blue-500;
+$brand-primary-hover: $blue-600;
+$brand-primary-active: $blue-700;
+$brand-primary-disable: $blue-200;
+$brand-primary-text-disable: $blue-300;
+$brand-primary-shadow: rgba(41, 151, 255, 0.5);
+// Brand secondary
+$brand-secondary: $black-950;
+$brand-secondary-hover: $black-600;
+$brand-secondary-active: $black-700;
+$brand-secondary-disable: $black-200;
+$brand-secondary-text-disable: $black-700;
+$brand-secondary-shadow: rgba(0, 0, 0, 0.5);
+// Hover
+$hover: rgba(255, 255, 255, 0.8);
+$hover-dark: #414141;
+$hover-success: #198754;
+$hover-warning: rgba(255, 100, 100, 0.75);
+$hover-black-tr: #d9d9d9;
+// Shadow
+$shadow-modal: 0 0 10px rgba(0, 0, 0, 0.25);
+$link-color: #007bff;
+$border-color: #ddd;
+$input-color: rgb(210, 209, 209);
