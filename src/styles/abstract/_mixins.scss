@@ -1,7 +1,7 @@
 @import "../variables/colors";
-@import "../variables/variablesColor";
-@import "../variables/variablesFont";
-@import "../variables/variablesSpacing";
+@import "../variables/variables-color";
+@import "../variables/variables-font";
+@import "../variables/variables-spacing";
 
 @mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center) {
   display: flex;

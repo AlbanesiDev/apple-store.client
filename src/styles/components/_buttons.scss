@@ -7,7 +7,7 @@
   z-index: $z-index-home-text;
   &::before {
     content: "";
-    @include positionAbsolute(auto, auto, -5px, 50%);
+    @include positionAbsolute(auto, auto, 1px, 50%);
     transform: translateX(-50%) scaleX(0);
     width: 50px !important;
     height: 2px;

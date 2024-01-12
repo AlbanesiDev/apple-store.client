@@ -1,0 +1,104 @@
+.modal__login {
+  @include positionFixed(-3%, 2.5%);
+  @include flex(column, nowrap);
+  transition: transform 0.5s;
+  transform: translateY(-100%);
+  width: 450px !important;
+  height: 620px !important;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.25);
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  z-index: 50;
+}
+.modal__container {
+  height: 100%;
+  &-title {
+    @include font($black, 2em, 600);
+    align-self: flex-start;
+    margin: 0;
+  }
+  &-form {
+    position: relative;
+    width: 100%;
+  }
+  &-btn {
+    @include font($white, 1.25em, 500);
+    @include flex;
+    height: 50px;
+    background-color: $brand-primary;
+    width: 100%;
+    border-radius: $border-radius-sm;
+    border: 0;
+    transition: background-color 0.25s;
+    margin-bottom: 1rem;
+    &:hover {
+      background-color: $brand-primary-hover;
+    }
+  }
+  &-btn-link {
+    @include font($gray, 1em, 800);
+    height: 20px;
+    text-decoration: none;
+    position: relative;
+    margin: $padding-sm;
+    cursor: pointer;
+    &:hover {
+      color: rgb(78, 78, 78);
+    }
+  }
+  &-or {
+    @include flex;
+    @include font($dark-gray, 1.15em, 800);
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    span {
+      flex: 1;
+      height: 1px;
+      background-color: hsla(0, 0%, 0%, 0.3);
+      margin: 0 10px;
+    }
+  }
+  &-btn-google {
+    @include flex;
+    height: 50px;
+    width: 100%;
+    background-color: $white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border: 0;
+    transition: background-color 0.25s;
+    img {
+      width: 2.25rem;
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px $brand-primary;
+    }
+  }
+  &-btn-switch {
+    @include font($dark-gray, 1em, 400);
+    text-align: center;
+    text-wrap: nowrap;
+    margin: 0;
+    button {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      color: $brand-primary;
+      cursor: pointer;
+      transition: text-shadow 0.25s ease-in-out;
+      &:hover {
+        text-shadow: 0 0 10px $brand-primary-shadow;
+      }
+    }
+  }
+}
+.modal__block {
+  @include flex(column, nowrap, space-around);
+  position: relative;
+  padding: 1rem;
+  width: 450px;
+  z-index: 5;
+}
