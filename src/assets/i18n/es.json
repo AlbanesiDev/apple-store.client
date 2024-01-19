@@ -1,13 +1,196 @@
 {
-  "full_banner_text": [
-    "Titanio. Tan resistente y ligero. Tan Pro.",
-    "Nueva cámara. Nuevo diseño. Nuevocionante.",
-    "Más inteligente. Más brillante. Más poderoso."
+  "header": [
+    {
+      "title": "Inicio",
+      "route": "home"
+    },
+    {
+      "title": "Tienda",
+      "route": "shop"
+    },
+    {
+      "title": "Mac",
+      "route": "shop/buy-mac"
+    },
+    {
+      "title": "iPad",
+      "route": "shop/buy-ipad"
+    },
+    {
+      "title": "iPhone",
+      "route": "shop/buy-iphone"
+    },
+    {
+      "title": "Watch",
+      "route": "shop/buy-watch"
+    },
+    {
+      "title": "AirPods",
+      "route": "shop/buy-airpods"
+    }
   ],
-  "square_banner_text": [
-      "Potenciado por",
-      "Bienvenido a la era de la informática espacial.",
-      "Impresionantemente grande. Increíblemente delgado.",
-      "Audio adaptativo. Escucha la diferencia"
+  "home": [
+    {
+      "full_banner_text": [
+        "Titanio. Tan resistente y ligero. Tan Pro.",
+        "Nueva cámara. Nuevo diseño. Nuevocionante.",
+        "Más inteligente. Más brillante. Más poderoso."
+      ],
+      "square_banner_text": [
+        "Potenciado por",
+        "Bienvenido a la era de la informática espacial.",
+        "Impresionantemente grande. Increíblemente delgado.",
+        "Audio adaptativo. Escucha la diferencia"
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "sections": [
+        {
+          "title": "Comprar y Aprender",
+          "items": [
+            "Tienda",
+            "Mac",
+            "iPad",
+            "iPhone",
+            "Watch",
+            "AirPods",
+            "TV y Hogar",
+            "AirTag",
+            "Accesorios",
+            "Tarjetas de regalo"
+          ]
+        },
+        {
+          "title": "Apple Wallet",
+          "items": [
+            "Wallet",
+            "Apple Card",
+            "Apple Pay",
+            "Apple Cash"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "title": "Cuenta",
+          "items": [
+            "Gestiona tu ID de Apple",
+            "Cuenta de Apple Store",
+            "iCloud.com"
+          ]
+        },
+        {
+          "title": "Entretenimiento",
+          "items": [
+            "Apple One",
+            "Apple TV+",
+            "Apple Music",
+            "Apple Arcade",
+            "Apple Fitness+",
+            "Apple News+",
+            "Apple Podcasts",
+            "Apple Books",
+            "App Store"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "title": "Tienda Apple",
+          "items": [
+            "Encuentra una tienda",
+            "Genius Bar",
+            "Hoy en Apple",
+            "Campamento Apple",
+            "Aplicación de la Tienda Apple",
+            "Reacondicionados Certificados",
+            "Canjea tu Apple",
+            "Financiamiento",
+            "Ofertas con Operadoras en Apple",
+            "Estado del pedido",
+            "Ayuda para comprar"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "title": "Para Empresas",
+          "items": [
+            "Apple y Empresas",
+            "Compra para Empresas"
+          ]
+        },
+        {
+          "title": "Para Educación",
+          "items": [
+            "Apple y Educación",
+            "Compra para K-12",
+            "Compra para Universidad"
+          ]
+        },
+        {
+          "title": "Para Salud",
+          "items": [
+            "Apple en el sector de la Salud",
+            "Salud en el Apple Watch",
+            "Registros de Salud en el iPhone"
+          ]
+        },
+        {
+          "title": "Para Gobierno",
+          "items": [
+            "Compra para Gobierno",
+            "Compra para Veteranos y Militares"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "title": "Valores de Apple",
+          "items": [
+            "Accesibilidad",
+            "Educación",
+            "Medio Ambiente",
+            "Inclusión y Diversidad",
+            "Privacidad",
+            "Equidad Racial y Justicia",
+            "Responsabilidad del Proveedor"
+          ]
+        },
+        {
+          "title": "Acerca de Apple",
+          "items": [
+            "Sala de prensa",
+            "Liderazgo de Apple",
+            "Oportunidades de Carrera",
+            "Inversionistas",
+            "Ética y Cumplimiento",
+            "Eventos",
+            "Contactar a Apple"
+          ]
+        },
+        {
+          "text": "More ways to shop: <a href='#'>Encuentra tu Apple Store</a> u <a href='#'>Otras tiendas</a> cerca de ti. O llama al 1-800-MY-APPLE.",
+          "copyright": "Copyright © 2023 Apple Inc. Todos los derechos reservados.",
+          "links": [
+            "Política de privacidad",
+            "Condiciones de uso",
+            "Ventas y devoluciones",
+            "Aviso legal",
+            "Mapa del sitio"
+          ]
+        }
+      ]
+    }
   ]
 }
