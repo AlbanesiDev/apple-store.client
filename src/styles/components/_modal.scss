@@ -1,5 +1,5 @@
 .modal__login {
-  @include positionFixed(-3%, 2.5%);
+  @include position-fixed(-3%, 2.5%);
   @include flex(column, nowrap);
   transition: transform 0.5s;
   transform: translateY(-100%);

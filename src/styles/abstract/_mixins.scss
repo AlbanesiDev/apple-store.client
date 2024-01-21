@@ -3,22 +3,23 @@
 @import "../variables/variables-font";
 @import "../variables/variables-spacing";
 
-@mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center) {
+@mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center,$gap-vertical: 0, $gap-horizontal: 0) {
   display: flex;
   flex-direction: $direction;
   flex-wrap: $wrap;
   justify-content: $justify;
   align-items: $align;
+  gap: $gap-vertical $gap-horizontal;
 }
 
-@mixin font($color: $black, $size: 1em, $weight: 400) {
+@mixin font($color: $black, $size, $weight: 400) {
   font-family: "SF-Pro", sans-serif;
   color: $color;
   font-size: $size;
   font-weight: $weight;
 }
 
-@mixin mediaQuery($breakpoint) {
+@mixin media-query($breakpoint) {
   @if $breakpoint == "tablet" {
     @media (min-width: 768px) and (max-width: 1023px) {
       @content;
@@ -36,7 +37,7 @@
   }
 }
 
-@mixin positionAbsolute($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
+@mixin position-absolute($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
   position: absolute;
   top: $pTop;
   right: $pRight;
@@ -44,14 +45,14 @@
   left: $pLeft;
 }
 
-@mixin absoluteCenter() {
+@mixin absolute-center() {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) !important;
 }
 
-@mixin positionFixed($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
+@mixin position-fixed($pTop: auto, $pRight: auto, $pBottom: auto, $pLeft: auto) {
   position: fixed;
   top: $pTop;
   right: $pRight;
@@ -59,19 +60,7 @@
   left: $pLeft;
 }
 
-@mixin cardStyle() {
-  position: relative;
-  background-color: $backgroundCard;
-  border-radius: $xl;
-  box-shadow: $shadowComponent;
-  padding: $paddingXl;
-  width: 100%;
-  @media (min-width: 1024px) {
-    padding: $padding-xxl;
-  }
-}
-
-@mixin borderCard() {
+@mixin border-card() {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: $border-radius-sm;
 }

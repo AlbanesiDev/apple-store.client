@@ -1,0 +1,7 @@
+.section__title {
+  @include font($black, $font-size-md, 600);
+  padding-bottom: $padding-1x;
+  h2 {
+    margin: 0;
+  }
+}

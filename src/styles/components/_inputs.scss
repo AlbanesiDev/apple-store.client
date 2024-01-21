@@ -3,7 +3,7 @@
   user-select: none;
   .password__icon {
     @include flex();
-    @include positionAbsolute(0px, 18px);
+    @include position-absolute(0px, 18px);
     cursor: pointer;
     width: 21px;
     height: 52px;

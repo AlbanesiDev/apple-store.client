@@ -78,6 +78,11 @@ body {
   line-height: 1;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+
 ol,
 ul {
   list-style: none;
