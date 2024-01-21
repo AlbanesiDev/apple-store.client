@@ -1,0 +1,22 @@
+@import '../../../../styles/abstract/mixins';
+
+.collections__wrapper {
+  @include flex(row, wrap, flex-start);
+  padding-top: 10%;
+  gap: $gap-xl;
+
+  .box {
+    background-color: $blue-900;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+    height: 300px;
+    width: 300px;
+    padding: $padding-md;
+    border-radius: $border-radius-md;
+    transition: all 0.25s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.85);
+    }
+  }
+}

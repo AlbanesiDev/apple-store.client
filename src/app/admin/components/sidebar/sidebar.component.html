@@ -1,0 +1,32 @@
+<div class="sidebar" [class.active]="sidebarService.isOpen()">
+  <div class="sidebar__container">
+    <div class="sidebar__menu">
+      @for (button of buttons; track $index) {
+        <button class="btn__sidebar" [title]="button.title" [routerLink]="button.route">
+          <div class="btn__sidebar-icon" *ngIf="sidebarService.isOpen()" [@fadeOutIn]>
+            <fa-icon [icon]="button.icon" [ngStyle]="{ color: button.color }"></fa-icon>
+          </div>
+          <span>
+            {{ button.title }}
+          </span>
+          <div class="btn__sidebar-icon-right" *ngIf="!sidebarService.isOpen()" [@fadeInOut]>
+            <fa-icon [icon]="button.icon" [ngStyle]="{ color: button.color }"></fa-icon>
+          </div>
+        </button>
+      }
+    </div>
+    <div class="sidebar__menu">
+      <button class="btn__sidebar" (click)="''" [title]="logoutButton.title">
+        <div class="btn__sidebar-icon"  *ngIf="sidebarService.isOpen()" [@fadeOutIn]>
+          <fa-icon [icon]="logoutButton.icon" [ngStyle]="{ color: logoutButton.color }"></fa-icon>
+        </div>
+        <span>
+          Logout
+        </span>
+        <div class="btn__sidebar-icon-right" *ngIf="!sidebarService.isOpen()" [@fadeInOut]>
+          <fa-icon [icon]="logoutButton.icon" [ngStyle]="{ color: logoutButton.color }"></fa-icon>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

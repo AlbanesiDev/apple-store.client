@@ -1,0 +1,52 @@
+@import "../../../../styles/abstract/mixins";
+
+.sidebar {
+  @include position-absolute(auto, auto, 0, 0);
+  width: 271px;
+  height: calc(100vh - 60px) or 100%;
+  background-color: $black;
+  transition: transform 0.25s;
+  transform: translateX(-200px);
+  z-index: 5;
+  &.active {
+    transform: translateX(0);
+  }
+  .sidebar__container {
+    @include flex(column, nowrap, space-between, flex-start);
+    height: 100%;
+    padding: $padding-md 0 $padding-md $padding-md;
+    gap: $gap-xl;
+    .sidebar__menu {
+      width: 100%;
+      .btn__sidebar {
+        @include flex(row, nowrap, flex-start);
+        @include font($white, $font-size-base, $weight-regular);
+        width: 100%;
+        text-align: start;
+        height: 50px;
+        background-color: transparent;
+        padding: 0;
+        border: 0;
+        border-radius: $border-radius-md 0 0 $border-radius-md;
+        &-icon {
+          @include flex();
+          width: 35px;
+          margin-right: $margin-sm;
+          margin-left: $margin-sm;
+          font-size: 1.35rem;
+        }
+        span {
+          flex-grow: 1;
+        }
+        &-icon-right {
+          @include flex();
+          width: 71px;
+          font-size: 1.35rem;
+        }
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.12);
+        }
+      }
+    }
+  }
+}
