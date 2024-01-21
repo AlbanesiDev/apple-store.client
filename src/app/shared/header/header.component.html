@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="container">
+    <a class="header__logo" href="/" (click)="closeAll()">
+      <fa-icon [icon]="getIcon('faApple')"></fa-icon>
+    </a>
+    <nav class="header__nav navbar navbar-expand-lg" appAutoClose>
+      <div #navbarNav class="collapse navbar-collapse" id="navbarNav">
+        <ul class="header__list">
+          <ng-container *ngFor="let item of links; let i = index">
+            <li class="header__item">
+              <a class="header__item-link" href="#" [routerLink]="item.route" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" (click)="closeNavbar()">
+                {{ item.title | translate }}
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </nav>
+    <div class="header__buttons">
+      <button class="btn__header" (click)="this.headerService.toggleSearch()" (click)="closeNavbar()">
+        <fa-icon [icon]="getIcon('faMagnifyingGlass')"></fa-icon>
+      </button>
+      <button class="btn__header" (click)="this.headerService.toggleBag()" (click)="closeNavbar()">
+        <fa-icon [icon]="getIcon('faBagShopping')"></fa-icon>
+        <span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger"
+          *ngIf="itemsCount > 0">
+          {{ itemsCount }}
+        </span>
+      </button>
+      <button class="btn__header" (click)="this.headerService.toggleUser()" (click)="closeNavbar()">
+        <fa-icon [icon]="getIcon('faCircleUser')"></fa-icon>
+      </button>
+      <button class="btn__header navbar-toggler" type="button" (click)="closeAll()" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <fa-icon [icon]="getIcon('faBars')"></fa-icon>
+      </button>
+    </div>
+  </div>
+</header>

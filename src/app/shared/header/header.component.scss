@@ -1,3 +1,126 @@
-:host {
-  display: block;
+@import "../../../styles/abstract/mixins";
+
+$border-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+
+.header {
+  @include flex;
+  width: 100%;
+  min-height: 80px;
+  background: $black;
+  box-shadow: $border-shadow;
+  z-index: 10;
+  .container {
+    height: 100%;
+    @include flex(row, nowrap, space-between);
+    .header__logo {
+      font-size: 2.5rem;
+      color: $white;
+      &:hover {
+        color: $hover;
+      }
+      &:active {
+        color: $brand-primary-active;
+      }
+    }
+    .header__buttons {
+      display: flex;
+      gap: 1rem;
+      .btn__header {
+        background-color: transparent;
+        font-size: 1.85rem;
+        color: $white;
+        border: 0;
+        border-radius: 50%;
+        &:hover {
+          color: $hover;
+        }
+      }
+    }
+  }
+}
+
+.header__nav {
+  @include absolute-center;
+  .header__list {
+    @include flex;
+    gap: $gap-lg;
+    margin: 0;
+    padding: 0;
+    .header__item {
+      &-link {
+        @include font($white, $font-size-md, $weight-regular);
+        position: relative;
+        color: $white;
+        text-decoration: none;
+        &.active {
+          color: $brand-primary;
+          &:hover {
+            color: $brand-primary-hover;
+          }
+          &:active {
+            color: $brand-primary-active;
+          }
+        }
+        &:hover {
+          color: $hover;
+        }
+        &:active {
+          color: $brand-primary-active;
+        }
+        &::before {
+          content: "";
+          @include position-absolute(auto, auto, -2px, 0%);
+          transform: translateX(0%);
+          width: 0;
+          height: 2px;
+          background-color: $white;
+          transition:
+            transform 0.3s ease,
+            width 0.3s ease;
+        }
+        &:hover::before {
+          transform: translateX(0%);
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.badge {
+  font-family: "SF-Pro";
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .header__nav {
+    transform: translate(0, 0) !important;
+    top: 80px !important;
+    left: 0 !important;
+    width: 100%;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px) saturate(1.5);
+    box-shadow: $border-shadow;
+    .header__list {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 720px;
+      --bs-gutter-x: 1.5rem;
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      margin: $margin-xxl 0;
+      margin-right: auto;
+      margin-left: auto;
+      @media (min-width: 576px) and (max-width: 767px) {
+        max-width: 540px !important;
+      }
+    }
+  }
 }
