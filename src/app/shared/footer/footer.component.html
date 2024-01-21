@@ -2,48 +2,35 @@
   <div class="container">
     <nav class="footer__nav">
       <div class="footer__column" *ngFor="let column of list">
-        <div class="footer__column-section" *ngFor="let section of column.sections">
-          <h3 class="footer__column-title">{{ section.title }}</h3>
+        <div class="footer__column-section" *ngFor="let section of column.sections; let i = index">
+          <h3 class="footer__column-title">{{ section.title | translate }}</h3>
           <ul class="footer__column-list">
-            <li class="column__item" *ngFor="let item of section.items">
-              <a class="column__item-link" href="#">{{ item }}</a>
+            <li class="column__item" *ngFor="let item of section.items; let i = index">
+              <a class="column__item-link" href="#">{{ item | translate }}</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <div class="row">
       <div class="col-12">
-        <p class="footer__text">
-          More ways to shop: <a href="#">Find an Apple Store</a> or <a href="#">other retailer</a> near you. Or call
-          1-800-MY-APPLE.
-        </p>
+        <p class="footer__text" [innerHtml]="text | translate"></p>
       </div>
-    </div>
-    <div class="row">
+      <div class="container__line">
+        <div class="line"></div>
+      </div>
       <div class="col-12">
         <div class="footer__bottom">
           <p class="footer__bottom-copyright">
-            Copyright © 2023 Apple Inc. All rights reserved.
+            {{ copyright | translate }}
           </p>
           <ul class="bottom__list">
-            <li class="bottom__item">
-              <a class="bottom__item-links" href="#">Privacy Policy</a>
-            </li>
-            <li class="bottom__item">
-              <a class="bottom__item-links" href="#">Terms of Use</a>
-            </li>
-            <li class="bottom__item">
-              <a class="bottom__item-links" href="#">Sales and Refunds</a>
-            </li>
-            <li class="bottom__item">
-              <a class="bottom__item-links">Legal</a>
-            </li>
-            <li class="bottom__item">
-              <a class="bottom__item-links" href="#">Site Map</a>
+            <li class="bottom__item" *ngFor="let item of links">
+              <a class="bottom__item-links" href="#">{{ item | translate }}</a>
             </li>
           </ul>
-          <a class="footer__country" href="#">United States</a>
+          <a class="footer__country" href="#" routerLink="/choose-country-region">{{ region }}</a>
         </div>
       </div>
     </div>
