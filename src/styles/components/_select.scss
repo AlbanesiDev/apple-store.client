@@ -1,0 +1,16 @@
+.p-select {
+  @include font($black, 1em, 400);
+  padding: $padding-xs $padding-xs;
+  border-radius: $border-radius-xs;
+  border: $border-smooth;
+  cursor: pointer;
+  &:hover {
+    border-color: $brand-primary;
+  }
+  &:focus {
+    border-color: $brand-primary;
+  }
+  &:focus-visible {
+    outline: 0;
+  }
+}
