@@ -1,0 +1,41 @@
+<div class="modal__container modal__block">
+  <h2 class="modal__container-title">{{ title }}</h2>
+  <div class="modal__container-form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <ng-container *ngFor="let field of formFields">
+        <div>
+          <input
+            class="modal__container-input"
+            type="{{ field.type }}"
+            [formControl]="field.control"
+            placeholder="{{ field.placeholder }}"
+            autocomplete="on"
+          />
+          <div *ngIf="showPasswordToggle">
+            <span class="password__icon" (click)="toggleShowPassword()">
+              <ng-container *ngIf="!showPasswordInput">
+                <fa-icon [icon]="faEye"></fa-icon>
+              </ng-container>
+              <ng-container *ngIf="showPasswordInput">
+                <fa-icon [icon]="faEyeSlash"></fa-icon>
+              </ng-container>
+            </span>
+          </div>
+          <div *ngFor="let error of field.control.errors | keyvalue">
+            <p class="text-danger">{{ error | controlErrors }}</p>
+          </div>
+        </div>
+      </ng-container>
+      <button type="submit" class="modal__container-btn">{{ buttonLabel }}</button>
+    </form>
+  </div>
+
+  <p class="modal__container-or"><span></span> Or <span></span></p>
+  <button class="modal__container-btn-google" (click)="googleAuth()">
+    <img [src]="faGoogle" alt="google icon">
+  </button>
+  <p class="modal__container-btn-switch">
+    {{ switchMessage }}
+    <button (click)="switchForm()">{{ switchButtonLabel }}</button>
+  </p>
+</div>

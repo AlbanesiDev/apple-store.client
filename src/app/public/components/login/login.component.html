@@ -1,0 +1,9 @@
+<app-auth-form
+  [title]="'Login'"
+  [formFields]="loginFormFields"
+  (submit)="loginWithEmail()"
+  [buttonLabel]="'Sign In'"
+  [switchMessage]="'Don\'t have an account?'"
+  [switchButtonLabel]="'Sign Up'"
+  (switchFormEvent)="goToRegisterContainer()"
+></app-auth-form>

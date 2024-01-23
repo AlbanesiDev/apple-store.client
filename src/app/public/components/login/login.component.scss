@@ -1,0 +1,32 @@
+@import "../../../../styles/abstract/mixins";
+
+.error__container {
+  @include font(red, $font-size-md, 600);
+  @include flex(row, nowrap, flex-start);
+  width: 100%;
+  min-height: 50px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 2px solid red;
+  border-radius: $border-radius-sm;
+}
+
+.forgot__container {
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.input__error {
+  color: red;
+}
+
+.modal__container-input .active {
+  margin-bottom: 3rem;
+}
+
+

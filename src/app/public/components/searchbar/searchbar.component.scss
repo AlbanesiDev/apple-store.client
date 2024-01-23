@@ -1,0 +1,51 @@
+@import "../../../../styles/abstract/mixins";
+
+.search-bar.open {
+  transform: translateY(80px);
+}
+
+.search-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform .5s;
+  transform: translateY(-100%);
+  width: 100%;
+  height: calc(100vh - 80px);
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+  .container {
+    height: calc(50vh - 80px);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .search-bar__input {
+      @include font($white, 1em);
+      width: 100%;
+      text-transform: capitalize;
+      height: 40px;
+      margin: 2.5rem 0;
+      border: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2);
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 5px $brand-primary;
+      }
+    }
+    :-ms-input-placeholder {
+      color: #c8c8c8;
+    }
+    ::-ms-input-placeholder {
+      color: #c8c8c8;
+    }
+    ::placeholder {
+      color: #c8c8c8;
+      opacity: 1;
+    }
+  }
+}

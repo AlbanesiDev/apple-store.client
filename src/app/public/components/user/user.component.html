@@ -1,0 +1,24 @@
+<div class="modal__login" [class.open]="headerService.isOpenUser()">
+  <ng-container *ngIf="!profileContainer">
+    <div
+      class="modal__container"
+      [class.forgot]="forgotContainer"
+      [class.login]="loginContainer"
+      [class.register]="registerContainer"
+    >
+      <div class="app__forgot">
+        <app-forgot></app-forgot>
+      </div>
+      <div class="app__login">
+        <app-login></app-login>
+      </div>
+      <div class="app__register">
+        <app-register></app-register>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="profileContainer">
+    <!-- <app-profile></app-profile> -->
+  </ng-container>
+</div>

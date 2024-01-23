@@ -1,0 +1,20 @@
+@import "../../../../styles/abstract/mixins";
+
+.modal__login.open {
+  transform: translateY(20%);
+}
+.modal__container {
+  display: flex;
+  width: 1800px;
+  transition: transform 0.5s;
+  transform: translateX(-37.5%);
+}
+.modal__container.forgot {
+  transform: translateX(12.5%);
+}
+.modal__container.login {
+  transform: translateX(-37.5%);
+}
+.modal__container.register {
+  transform: translateX(-62.5%);
+}
