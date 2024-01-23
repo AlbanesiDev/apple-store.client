@@ -1,3 +1,8 @@
-﻿<app-header class="app-header"></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+﻿<app-header *ngIf="!isDashboardVisible" class="app-header"></app-header>
+<div class="app container g-0">
+  <router-outlet class="router-outlet"></router-outlet>
+  <app-bag></app-bag>
+  <app-user></app-user>
+  <app-searchbar></app-searchbar>
+</div>
+<app-footer *ngIf="!isDashboardVisible"></app-footer>
