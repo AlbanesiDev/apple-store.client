@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="section__title">
+    <h2>product</h2>
+  </div>
+  <div class="product-details__wrapper">
+    <div class="col__1">
+      <div class="carousel"></div>
+    </div>
+    <div class="col__2">
+
+      <div class="" *ngIf="">
+        <ng-container *ngFor="let item of sizes">
+          <label>
+            <input type="radio" name="Size" />
+            <span>{{ item }}</span>
+          </label>
+        </ng-container>
+      </div>
+
+      <div class="color" *ngIf="">
+        <label>
+          <ng-container *ngFor="let item of colors">
+            <input type="radio" name="Color" id="" />
+          </ng-container>
+        </label>
+      </div>
+
+      <div class="" *ngIf="">
+        <label>
+          <ng-container *ngFor="let item of storageSize">
+            <input type="radio" name="Space" id="" />
+          </ng-container>
+        </label>
+      </div>
+
+      <div class="">
+        <button
+          class="btn__primary"
+          type="button"
+          name="Add to cart"
+          [disabled]="!inStock"
+          (click)="addToBag()"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="product-comparison">
+    <app-product-comparison></app-product-comparison>
+  </div>
+</div>

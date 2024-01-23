@@ -1,0 +1,16 @@
+@import "../../../../styles/abstract/mixins";
+
+.container__regions {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xl;
+  height: auto;
+  width: 100%;
+  min-height: 300px;
+  &-title {
+    padding-top: $margin-1x;
+    padding-bottom: $margin-lg;
+    border-top: 1px solid #d2d2d7;
+    @include font($black, $font-size-lg, $weight-semi-bold);
+  }
+}

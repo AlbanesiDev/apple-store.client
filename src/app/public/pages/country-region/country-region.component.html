@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="section__title">
+    <h2>Choose Your Country or Region</h2>
+  </div>
+  <ng-container *ngFor="let item of regions">
+    <div class="container__regions">
+      <div class="container__regions-title">
+        <h3>{{ item }}</h3>
+      </div>
+      <ng-container *ngFor="let countries of item.country">
+        <button class="" (click)="setCountry(item.country, item.id)">{{ countries }}</button>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

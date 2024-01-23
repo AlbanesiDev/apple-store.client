@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="section__title">
+    <h2>{{ title }}</h2>
+  </div>
+
+  <div class="card__container">
+    <ng-container *ngFor="let item of pagedProducts">
+      <app-card
+        [loading]="loading"
+        [model]="item.model"
+        [imgCover]="item.cover"
+        [colorName]="item.color?.name"
+        [colorStrape]="item.strap_color?.name"
+        [variations]="item.variations"
+        [category]="item.category"
+      >
+      </app-card>
+    </ng-container>
+  </div>
+
+  <app-paginator
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    [visiblePages]="visiblePages"
+    (pageNavigated)="onPageNavigated($event)"
+  ></app-paginator>
+</div>
