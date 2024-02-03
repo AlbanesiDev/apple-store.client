@@ -19,7 +19,7 @@ const routes: Routes = [
       const category = params.params['category'];
       const claneadCategory = category.replace('buy-', '');
       return `Apple Store | ${claneadCategory}`;
-    }
+    },
   },
   {
     path: 'shop/:category/:product-:color',
@@ -60,29 +60,44 @@ const routes: Routes = [
     children: [
       {
         path: 'analytics',
-        loadComponent: () => import('./admin/components/analytics/analytics.component').then((m) => m.AnalyticsComponent),
+        loadComponent: () =>
+          import('./admin/components/analytics/analytics.component').then(
+            (m) => m.AnalyticsComponent
+          ),
         data: { title: 'Dashboard | Analytics' },
       },
       {
         path: 'orders',
-        loadComponent: () => import('./admin/components/orders/orders.component').then((m) => m.OrdersComponent),
+        loadComponent: () =>
+          import('./admin/components/orders/orders.component').then(
+            (m) => m.OrdersComponent
+          ),
         data: { title: 'Dashboard | Orders' },
       },
       {
         path: 'products',
-        loadComponent: () => import('./admin/components/crud-products/crud-products.component').then((m) => m.CrudProductsComponent),
+        loadComponent: () =>
+          import(
+            './admin/components/crud-products/crud-products.component'
+          ).then((m) => m.CrudProductsComponent),
         data: { title: 'Dashboard | Products' },
         children: [
           {
             path: ':collection',
-            loadComponent: () => import('./admin/components/crud-products/crud/crud.component').then((m) => m.CrudComponent),
+            loadComponent: () =>
+              import(
+                './admin/components/crud-products/crud/crud.component'
+              ).then((m) => m.CrudComponent),
             data: { title: 'Dashboard | Products | Collection' },
           },
-        ]
+        ],
       },
       {
         path: 'users',
-        loadComponent: () => import('./admin/components/abm-users/abm-users.component').then((m) => m.AbmUsersComponent),
+        loadComponent: () =>
+          import('./admin/components/abm-users/abm-users.component').then(
+            (m) => m.AbmUsersComponent
+          ),
         data: { title: 'Dashboard | Users' },
       },
     ],
@@ -94,7 +109,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
