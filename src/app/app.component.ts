@@ -1,37 +1,40 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-} from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Title } from '@angular/platform-browser';
 import { Subscription, filter } from 'rxjs';
 import { HeaderService } from './public/services/header.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './shared/header/header.component';
+import { BagComponent } from './public/components/bag/bag.component';
+import { UserComponent } from './public/components/user/user.component';
+import { SearchbarComponent } from './public/components/searchbar/searchbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: "app-root",
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, FontAwesomeModule, HeaderComponent, BagComponent, UserComponent, SearchbarComponent, FooterComponent],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnDestroy {
   private routerSubscription: Subscription;
   public isDashboardVisible = true;
 
-  constructor(
-    private translateService: TranslateService,
-    private activatedRoute: ActivatedRoute,
-    private headerService: HeaderService,
-    private titleService: Title,
-    private router: Router
-  ) {
-    const userLang = navigator.language || 'en';
-    const leguageCode = userLang.split('-')[0];
-    this.translateService.setDefaultLang(leguageCode);
-    this.translateService.use(leguageCode);
+  // private translateService = inject(TranslateService);
+  private headerService = inject(HeaderService);
+  private router = inject(Router);
 
+  constructor() {
+    // const userLang = navigator.language || 'en';
+    // const leguageCode = userLang.split('-')[0];
+    // this.translateService.setDefaultLang(leguageCode);
+    // this.translateService.use(leguageCode);
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.isDashboardVisible = this.router.url.startsWith("/dashboard");
+    });
     this.routerSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.headerService.closeBag();
@@ -39,28 +42,9 @@ export class AppComponent implements OnDestroy {
         this.headerService.closeSearch();
       }
     });
-
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const pageTitle = this.getPageTitle(this.activatedRoute);
-        this.titleService.setTitle(pageTitle);
-        this.isDashboardVisible = this.router.url.startsWith('/dashboard');
-      });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.routerSubscription.unsubscribe();
-  }
-
-  private getPageTitle(route: ActivatedRoute): string {
-    const routeData = route.snapshot.data;
-    if (route.firstChild) {
-      return this.getPageTitle(route.firstChild);
-    }
-    if (routeData && routeData['title']) {
-      return routeData['title'];
-    }
-    return 'Apple Store';
   }
 }

@@ -1,8 +1,12 @@
-﻿<app-header *ngIf="!isDashboardVisible" class="app-header"></app-header>
+﻿@if (!isDashboardVisible) {
+  <app-header class="app-header"></app-header>
+}
 <div class="app container g-0">
   <router-outlet class="router-outlet"></router-outlet>
   <app-bag></app-bag>
   <app-user></app-user>
   <app-searchbar></app-searchbar>
 </div>
-<app-footer *ngIf="!isDashboardVisible"></app-footer>
+@if (!isDashboardVisible) {
+  <app-footer></app-footer>
+}
